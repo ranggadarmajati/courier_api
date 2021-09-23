@@ -61,4 +61,4 @@ $ php artisan serve
 ```
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/ranggadarmajati/courier_api/blob/main/LICENSE)
