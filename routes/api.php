@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\SubdistrictController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// province route
 Route::group(['prefix' => 'province', 'as' => 'province.'], function () {
     Route::get('/', [ProvinceController::class, 'index']);
     Route::get('/{id}', [ProvinceController::class, 'show']);
 });
+
+// city route
 Route::group(['prefix' => 'city', 'as' => 'city.'], function () {
     Route::get('/', [CityController::class, 'index']);
     Route::get('/{id}', [CityController::class, 'show']);
+});
+
+// subdistrict route
+Route::group(['prefix' => 'subdistrict', 'as' => 'subdistrict.'], function () {
+    Route::get('/', [SubdistrictController::class, 'index']);
+    Route::get('/{id}', [SubdistrictController::class, 'show']);
 });
