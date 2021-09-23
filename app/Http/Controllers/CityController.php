@@ -12,7 +12,7 @@ class CityController extends Controller
     {
         $getData = Rajaongkir::setEndpoint('city')
             ->setBase(env("RAJAONGKIR_TYPE"))
-            ->setQuery([])
+            ->setQuery($request->query())
             ->get();
 
         return response()->json($getData['rajaongkir']);
