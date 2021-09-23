@@ -20,10 +20,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // province route
 Route::group(['prefix' => 'province', 'as' => 'province.'], function () {
     Route::get('/', [ProvinceController::class, 'index']);
