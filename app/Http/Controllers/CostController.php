@@ -21,12 +21,24 @@ class CostController extends Controller
 
     // get international cost
     // params ['origin' as city_id, 'destination' as country_id, 'courier', 'weight']
-    public function internationalCost(Request $request) {
+    public function internationalCost(Request $request)
+    {
         $getData = Rajaongkir::setEndpoint('v2/internationalCost')
             ->setBase(env("RAJAONGKIR_TYPE"))
             ->setBody($request->query())
             ->post();
 
         return response()->json($getData['rajaongkir']);
+    }
+
+    // get currency idr to usd
+    public function currency()
+    {
+        $getData = Rajaongkir::setEndpoint('currency')
+            ->setBase(env("RAJAONGKIR_TYPE"))
+            ->setQuery([])
+            ->get();
+
+        return response()->json($getData["rajaongkir"]);
     }
 }

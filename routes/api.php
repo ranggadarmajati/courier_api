@@ -46,6 +46,7 @@ Route::group(['prefix' => 'subdistrict', 'as' => 'subdistrict.'], function () {
 Route::group(['prefix' => 'cost', 'as' => 'cost.'], function () {
     Route::get('/', [CostController::class, 'index']);
     Route::get('/international', [CostController::class, 'internationalCost']);
+    Route::get('/currency', [CostController::class, 'currency']);
 });
 
 // international origin route
