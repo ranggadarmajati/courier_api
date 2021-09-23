@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\CostController;
+use App\Http\Controllers\InternationalDestinationController;
 use App\Http\Controllers\InternationalOriginController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SubdistrictController;
@@ -49,4 +50,9 @@ Route::group(['prefix' => 'cost', 'as' => 'cost.'], function () {
 // international origin route
 Route::group(['prefix' => 'internationalorigin', 'as' => 'internationalorigin.'], function () {
     Route::get('/', [InternationalOriginController::class, 'index']);
+});
+
+// international destination route
+Route::group(['prefix' => 'internationaldestination', 'as' => 'internationaldestination.'], function () {
+    Route::get('/', [InternationalDestinationController::class, 'index']);
 });
