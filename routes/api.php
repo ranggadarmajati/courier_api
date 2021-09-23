@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CostController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SubdistrictController;
 use Illuminate\Http\Request;
@@ -37,4 +38,9 @@ Route::group(['prefix' => 'city', 'as' => 'city.'], function () {
 Route::group(['prefix' => 'subdistrict', 'as' => 'subdistrict.'], function () {
     Route::get('/', [SubdistrictController::class, 'index']);
     Route::get('/{id}', [SubdistrictController::class, 'show']);
+});
+
+// cost route
+Route::group(['prefix' => 'cost', 'as' => 'cost.'], function () {
+    Route::get('/', [CostController::class, 'index']);
 });
