@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class SubdistrictController extends Controller
 {
     // get subdistrict data
+    // params ['id' as subdistrict_id, 'city' as city_id]
     public function index(Request $request)
     {
         $getData = Rajaongkir::setEndpoint('subdistrict')

@@ -9,11 +9,12 @@ use Illuminate\Http\Request;
 class ProvinceController extends Controller
 {
     // get province
+    // params: ['id' as province_id]
     public function index(Request $request)
     {
         $getProvince = Rajaongkir::setEndpoint('province')
             ->setBase(env("RAJAONGKIR_TYPE"))
-            ->setQuery([])
+            ->setQuery($request->query())
             ->get();
 
         return response()->json($getProvince['rajaongkir']);

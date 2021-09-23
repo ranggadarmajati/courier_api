@@ -8,6 +8,7 @@ use Rdj\Rajaongkir\Facades\Rajaongkir;
 class CostController extends Controller
 {
     // get cost
+    // params: ['origin', 'originType', 'city', 'destination', 'destinationType', 'weight', 'courier']
     public function index(Request $request)
     {
         $getData = Rajaongkir::setEndpoint('cost')
