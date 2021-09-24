@@ -10,7 +10,7 @@ class CityController extends Controller
     // get city data
     // params: ['id', 'province']
     public function index(Request $request)
-    {
+    {   
         $getData = Rajaongkir::setEndpoint('city')
             ->setBase(env("RAJAONGKIR_TYPE"))
             ->setQuery($request->query())

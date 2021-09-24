@@ -20,37 +20,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// province route
-Route::group(['prefix' => 'province', 'as' => 'province.'], function () {
-    Route::get('/', [ProvinceController::class, 'index']);
-    Route::get('/{id}', [ProvinceController::class, 'show']);
-});
+Route::group(['middleware' => 'clientkey'], function () {
+    // province route
+    Route::group(['prefix' => 'province', 'as' => 'province.'], function () {
+        Route::get('/', [ProvinceController::class, 'index']);
+        Route::get('/{id}', [ProvinceController::class, 'show']);
+    });
 
-// city route
-Route::group(['prefix' => 'city', 'as' => 'city.'], function () {
-    Route::get('/', [CityController::class, 'index']);
-    Route::get('/{id}', [CityController::class, 'show']);
-});
+    // city route
+    Route::group(['prefix' => 'city', 'as' => 'city.'], function () {
+        Route::get('/', [CityController::class, 'index']);
+        Route::get('/{id}', [CityController::class, 'show']);
+    });
 
-// subdistrict route
-Route::group(['prefix' => 'subdistrict', 'as' => 'subdistrict.'], function () {
-    Route::get('/', [SubdistrictController::class, 'index']);
-    Route::get('/{id}', [SubdistrictController::class, 'show']);
-});
+    // subdistrict route
+    Route::group(['prefix' => 'subdistrict', 'as' => 'subdistrict.'], function () {
+        Route::get('/', [SubdistrictController::class, 'index']);
+        Route::get('/{id}', [SubdistrictController::class, 'show']);
+    });
 
-// cost route
-Route::group(['prefix' => 'cost', 'as' => 'cost.'], function () {
-    Route::get('/', [CostController::class, 'index']);
-    Route::get('/international', [CostController::class, 'internationalCost']);
-    Route::get('/currency', [CostController::class, 'currency']);
-});
+    // cost route
+    Route::group(['prefix' => 'cost', 'as' => 'cost.'], function () {
+        Route::get('/', [CostController::class, 'index']);
+        Route::get('/international', [CostController::class, 'internationalCost']);
+        Route::get('/currency', [CostController::class, 'currency']);
+    });
 
-// international origin route
-Route::group(['prefix' => 'internationalorigin', 'as' => 'internationalorigin.'], function () {
-    Route::get('/', [InternationalOriginController::class, 'index']);
-});
+    // international origin route
+    Route::group(['prefix' => 'internationalorigin', 'as' => 'internationalorigin.'], function () {
+        Route::get('/', [InternationalOriginController::class, 'index']);
+    });
 
-// international destination route
-Route::group(['prefix' => 'internationaldestination', 'as' => 'internationaldestination.'], function () {
-    Route::get('/', [InternationalDestinationController::class, 'index']);
+    // international destination route
+    Route::group(['prefix' => 'internationaldestination', 'as' => 'internationaldestination.'], function () {
+        Route::get('/', [InternationalDestinationController::class, 'index']);
+    });
 });
